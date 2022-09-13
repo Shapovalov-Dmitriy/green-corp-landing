@@ -3,15 +3,24 @@ body {
   color: #213053;
   margin: 0;
 }
-
+/* ============ header ============= */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
 }
 .header__logo {
   height: 30px;
+}
+.header__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 a {
   text-decoration: none;
@@ -37,6 +46,11 @@ button {
 button:hover {
   background-color: #f6980c;
   box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+}
+.fa-chevron-right {
+  font-size: 15px;
+  margin-left: 2px;
+  font-weight: 600;
 }
 /* =============== about =============== */
 .about {
@@ -66,15 +80,20 @@ button:hover {
   max-width: 500px;
 }
 .about__images {
-  display: flex;
+  position: relative;
 }
 .about__sun-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100px;
   height: 100px;
+  animation: rotation 10s linear infinite;
 }
 .about__image {
   width: 500px;
 }
+
 /* =============== form ============ */
 
 .contacts {
@@ -89,6 +108,7 @@ button:hover {
 .contacts__container {
   width: 550px;
 }
+
 .contacts__title {
   font-size: 48px;
 }
@@ -141,7 +161,7 @@ button:hover {
   display: flex;
   justify-content: center;
 }
-.footer__group {
+.footer__group:not(:last-child) {
   margin-right: 80px;
 }
 .footer__group h3 {
@@ -160,4 +180,71 @@ button:hover {
   text-align: center;
   margin-top: 40px;
   opacity: 0.5;
+}
+/* ========== animations ========== */
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============ media ============== */
+@media (max-width: 1024px) {
+  .about {
+    padding: 115px 20px;
+  }
+  .about h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+  }
+}
+@media (max-width: 720px) {
+  header {
+    padding: 10px;
+  }
+  .header__logo {
+    height: 20px;
+  }
+  header a {
+    margin-right: 10px;
+  }
+  .about,
+  .contacts,
+  .footer {
+    padding: 50px 10px;
+  }
+  .about {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .about h1,
+  .contacts h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+  }
+  .form h1 {
+    font-size: 36px;
+  }
+  .footer__container {
+    flex-direction: column;
+  }
 }
