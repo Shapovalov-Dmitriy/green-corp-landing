@@ -43,7 +43,8 @@ button {
   padding: 15px;
   transition: background-color 0.3s ease-in;
 }
-button:hover {
+button:hover,
+.promo__card button:hover {
   background-color: #f6980c;
   box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
 }
@@ -180,6 +181,52 @@ button:hover {
   color: #ff7039;
 }
 
+/* =============== promo ============ */
+.promo {
+  display: flex;
+}
+.promo__image {
+  background: url("img/promo.jpg") center / cover no-repeat;
+  flex-shrink: 0;
+  width: 50%;
+}
+.promo__right {
+  background-color: #dd5f26;
+  padding: 160px 60px;
+}
+.promo__card {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 25px;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 500;
+}
+.promo__card p {
+  opacity: 0.8;
+}
+.promo__card p::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ec6b29;
+  margin-right: 10px;
+}
+
+.promo__card button {
+  background-color: #107b1c;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 15px 30px;
+  font-weight: 600;
+}
+.promo__card button i {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
 /* =============== form ============ */
 
 .contacts {
@@ -293,6 +340,15 @@ button:hover {
     width: 75px;
     height: 75px;
   }
+  .features__feedback-right {
+    flex-direction: column;
+  }
+  .features__savings-box {
+    margin-right: 0;
+  }
+  .features__box:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 900px) {
   .cards {
@@ -306,6 +362,7 @@ button:hover {
   }
   .features__feedback-right {
     flex-direction: column;
+    width: 100%;
   }
   .features__box h3 {
     font-size: 36px;
@@ -313,6 +370,16 @@ button:hover {
   .features__savings-box {
     margin-right: 0;
     margin-bottom: 30px;
+  }
+  .promo {
+    flex-direction: column-reverse;
+  }
+  .promo__image {
+    width: 100%;
+    height: 500px;
+  }
+  .btn {
+    text-align: center;
   }
 }
 @media (max-width: 720px) {
@@ -349,7 +416,12 @@ button:hover {
     width: 75px;
     height: 75px;
   }
-
+  .promo__right {
+    padding: 50px 10px;
+  }
+  .promo__card h2 {
+    font-size: 20px;
+  }
   .form h1 {
     font-size: 36px;
   }
